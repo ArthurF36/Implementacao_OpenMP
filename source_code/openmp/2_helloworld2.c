@@ -6,7 +6,7 @@ int main(int argc, char** argv) {
   #pragma omp parallel 
   {
     printf("Hello World from thread %d\n", omp_get_thread_num());
-    printf("E agora??? %d\n", omp_get_thread_num());
+    printf("Agora é qual mesmo: %d\n", omp_get_thread_num());
   }
   return 0;
 }

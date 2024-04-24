@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 	     thread_num = omp_get_thread_num();
       #endif
 
-      printf("Hello World from thread %d\n",thread_num);
+      printf("Hello World from number %d\n",thread_num);
       printf("E agora??? %d\n", thread_num);
    }
       
