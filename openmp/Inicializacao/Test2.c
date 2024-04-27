@@ -14,10 +14,10 @@ int main(int argc, char** argv) {
 
         i++;
         printf("A Thread %d está sendo executada agora\n", thread_num);
-        printf("E agora??? %d\n", thread_num);
+        printf("Ultima thread executada: %d\n", thread_num);
     }
 
-    print()
+    printf("Marcador depois do fim da paralelização\n");
    
     return 0;
 }

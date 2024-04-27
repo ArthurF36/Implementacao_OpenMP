@@ -1,0 +1,46 @@
+Test1 (Rodar as threads)
+
+gcc -o exec openmp/Inicializacao/Test1.c -fopenmp  
+
+    //Compila o código usando OpenMP 
+
+ 
+
+./exec 
+
+    //Executa o código 
+
+gcc -o exec openmp/Inicializacao/Test1.c 
+
+    //Tenta compilar o código em serial para visualizar o erro 
+
+ 
+Test2: 
+
+gcc -o exec openmp/Inicializacao/Test2.c 
+
+    //Compila o código em serial com o erro consertado 
+
+export OMP_NUM_THREADS=4 
+
+    //Aumenta o número de threads 
+
+./exec 
+
+    //Executa novamente com um número maior de threads 
+
+
+Test3 (Divide o vetor em serial): 
+
+gcc -o exec openmp/TempoExucucao/Test3.c -lm 
+
+time ./exec
+    
+    //Exibe o que que levou para execução 
+
+
+Test4 (Divide o vetor em paralelo): 
+
+gcc -o exec source_code/openmp/TempoExucucao/Test4.c -openmp -lm 
+
+time ./exec
