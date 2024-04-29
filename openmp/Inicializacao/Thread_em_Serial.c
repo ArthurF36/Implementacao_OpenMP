@@ -4,7 +4,7 @@
 int main(int argc, char** argv) {
     int thread_num = 0;
     int i = 0;
-    printf("Marcador antes do inicio da paralelização\n");
+    printf("Marcador antes do inicio do serial\n");
     
     #pragma omp parallel 
     {
@@ -13,11 +13,10 @@ int main(int argc, char** argv) {
         #endif
 
         i++;
-        printf("A Thread %d está sendo executada agora\n", thread_num);
-        printf("Ultima thread executada: %d\n", thread_num);
+        printf("A Thread está sendo executada agora: %d\n", thread_num);
     }
 
-    printf("Marcador depois do fim da paralelização\n");
+    printf("Marcador depois do fim do seial\n");
    
     return 0;
 }

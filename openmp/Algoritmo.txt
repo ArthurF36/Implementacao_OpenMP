@@ -1,46 +1,32 @@
-Test1 (Rodar as threads)
+Thread_em_Paralelo
 
-gcc -o exec openmp/Inicializacao/Test1.c -fopenmp  
+gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c -fopenmp //Compila o código usando OpenMP 
 
-    //Compila o código usando OpenMP 
+./exec //Executa o código 
 
- 
-
-./exec 
-
-    //Executa o código 
-
-gcc -o exec openmp/Inicializacao/Test1.c 
-
-    //Tenta compilar o código em serial para visualizar o erro 
-
- 
-Test2: 
-
-gcc -o exec openmp/Inicializacao/Test2.c 
-
-    //Compila o código em serial com o erro consertado 
-
-export OMP_NUM_THREADS=4 
-
-    //Aumenta o número de threads 
-
-./exec 
-
-    //Executa novamente com um número maior de threads 
+gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c //Tenta compilar o código em serial para visualizar o erro 
 
 
-Test3 (Divide o vetor em serial): 
+Thread_em_Serial
 
-gcc -o exec openmp/TempoExucucao/Test3.c -lm 
+gcc -o exec openmp/Inicializacao/Thread_em_Serial.c  //Compila o código em serial com o erro consertado 
 
-time ./exec
-    
-    //Exibe o que que levou para execução 
+export OMP_NUM_THREADS=4 //Aumenta o número de threads 
+
+./exec //Executa novamente com um número maior de threads 
 
 
-Test4 (Divide o vetor em paralelo): 
+Tempo_Serial
 
-gcc -o exec source_code/openmp/TempoExucucao/Test4.c -openmp -lm 
+gcc -o exec openmp/TempoExucucao/Tempo_Serial.c -lm 
+
+time ./exec //Exibe o que que levou para execução 
+
+
+Tempo_Paralelo
+
+gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -openmp -lm 
+
+export OMP_NUM_THREADS=2
 
 time ./exec

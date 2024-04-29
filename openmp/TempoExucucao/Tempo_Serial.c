@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include <omp.h>
 
 
 void inicializa(int **v, int size) {
@@ -14,7 +13,7 @@ void inicializa(int **v, int size) {
 
 float square(int x){
   int k = 0;
-  while(k < 5000) k++;
+  while(k < 4000) k++;  // espera ocupada 
   return sqrt(x);  
 }
 
@@ -24,11 +23,9 @@ int main(int argc, char **argv) {
 	
 	int *vetor;
 	int size = 1000000;
-	
-	
+
 	inicializa(&vetor, size);
-	
-	#pragma omp parallel for
+	  
 	for(int i = 0; i < size; i++){
 	  vetor[i] = square(vetor[i]);
 	}
