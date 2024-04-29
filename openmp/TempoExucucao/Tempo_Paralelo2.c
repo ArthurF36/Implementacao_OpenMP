@@ -30,8 +30,12 @@ int main(int argc, char **argv) {
 	
 	#pragma omp parallel for
 	for(int i = 0; i < size; i++){
-	  vetor[i] = square(vetor[i]);
-	}
+		printf("Thread: %d\n", omp_get_thread_num());
+		printf("Raiz quadrada do número: %d\n", vetor[i]);
+		vetor[i] = square(vetor[i]);
+		printf("= %d\n", vetor[i]);
+		printf("\n");
+	} 
 	  
 
 	return 0;

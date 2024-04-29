@@ -1,4 +1,4 @@
-Thread_em_Paralelo
+_______________________________________________Thread_em_Paralelo_______________________________________________
 
 gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c -fopenmp //Compila o código usando OpenMP 
 
@@ -7,26 +7,32 @@ gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c -fopenmp //Compila o códi
 gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c //Tenta compilar o código em serial para visualizar o erro 
 
 
-Thread_em_Serial
+_______________________________________________Thread_em_Serial_______________________________________________
 
 gcc -o exec openmp/Inicializacao/Thread_em_Serial.c  //Compila o código em serial com o erro consertado 
 
 export OMP_NUM_THREADS=4 //Aumenta o número de threads 
 
+gcc -o exec openmp/Inicializacao/Thread_em_Serial.c -fopenmp  //Compila o código em paralelo
+
 ./exec //Executa novamente com um número maior de threads 
 
 
-Tempo_Serial
+_______________________________________________Tempo_Serial_______________________________________________
 
 gcc -o exec openmp/TempoExucucao/Tempo_Serial.c -lm 
+
+./exec
 
 time ./exec //Exibe o que que levou para execução 
 
 
-Tempo_Paralelo
+_______________________________________________Tempo_Paralelo_______________________________________________
 
 gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -fopenmp -lm 
 
 export OMP_NUM_THREADS=2
+
+./exec
 
 time ./exec
