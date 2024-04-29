@@ -25,7 +25,7 @@ time ./exec //Exibe o que que levou para execução
 
 Tempo_Paralelo
 
-gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -openmp -lm 
+gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -fopenmp -lm 
 
 export OMP_NUM_THREADS=2
 

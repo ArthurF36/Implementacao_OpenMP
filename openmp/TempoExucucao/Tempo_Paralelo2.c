@@ -14,7 +14,7 @@ void inicializa(int **v, int size) {
 
 float square(int x){
   int k = 0;
-  while(k < 5000) k++;
+  while(k < 4000) k++;
   return sqrt(x);  
 }
 
@@ -28,19 +28,9 @@ int main(int argc, char **argv) {
 	
 	inicializa(&vetor, size);
 	
-	#pragma omp parallel
-	{
-		// divisão do trabalho
-		int local_init, local_end, chunk;
-		chunk = size / omp_get_num_threads();
-		local_init = omp_get_thread_num() * chunk;
-		local_end = (omp_get_thread_num()+1) * chunk;
-		if ((omp_get_num_threads()-1) == omp_get_thread_num()) local_end = size;
-		
-		// calculo, cada thread responsável por seu bloco de memória
-		for (int i = local_init; i < local_end; i++) {
-			vetor[i] = square(vetor[i]);
-		} 
+	#pragma omp parallel for
+	for(int i = 0; i < size; i++){
+	  vetor[i] = square(vetor[i]);
 	}
 	  
 
