@@ -29,7 +29,7 @@ gcc -o exec openmp/TempoExucucao/Tempo_Serial.c -lm
 time ./exec //Exibe o que que levou para execução 
 
 
-_______________________________________________Tempo_Paralelo___________________________________________________
+_______________________________________________Tempo_Paralelo2___________________________________________________
 
 gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -fopenmp -lm 
 
