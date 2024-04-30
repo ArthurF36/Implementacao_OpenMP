@@ -27,10 +27,10 @@ int main(int argc, char **argv) {
 	inicializa(&vetor, size);
 	  
 	for(int i = 0; i < size; i++){
-		printf("Raiz quadrada do número: %d\n", vetor[i]);
+		// printf("Raiz quadrada do número: %d\n", vetor[i]);
 		vetor[i] = square(vetor[i]);
-		printf("= %d\n", vetor[i]);
-		printf("\n");
+		// printf("= %d\n", vetor[i]);
+		// printf("\n");
 	}
 	  
 

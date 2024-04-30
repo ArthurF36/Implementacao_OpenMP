@@ -24,33 +24,25 @@ int main(int argc, char **argv) {
 	
 	int *vetor;
 	int size = 1000000;
-	int thread_num = 0;
-	int thread_size = 1;
 	
 	
 	inicializa(&vetor, size);
 	
 	#pragma omp parallel
 	{
-		#if _OPENMP
-            thread_num = omp_get_thread_num();
-			thread_size = omp_get_num_threads();
-        #endif
-
 		// divisão do trabalho
 		int local_init, local_end, chunk;
-		chunk = size / thread_size;
-		local_init = thread_num * chunk;
-		local_end = (thread_num+1) * chunk;
-		if((thread_size  - 1) == thread_num)local_end = size;
+		chunk = size / omp_get_num_threads();
+		local_init = omp_get_thread_num() * chunk;
+		local_end = (omp_get_thread_num()+1) * chunk;
+		if((omp_get_num_threads()  - 1) == omp_get_thread_num())local_end = size;
 		
 		// calculo, cada thread responsável por seu bloco de memória
 		for(int i = 0; i < size; i++){
-			printf("Thread: %d\n", thread_num);
-			printf("Raiz quadrada do número: %d\n", vetor[i]);
+			// printf("Raiz quadrada do número: %d\n", vetor[i]);
 			vetor[i] = square(vetor[i]);
-			printf("= %d\n", vetor[i]);
-			printf("\n");
+			// printf("= %d\n", vetor[i]);
+			// printf("\n");
 		} 
 	}
 	  

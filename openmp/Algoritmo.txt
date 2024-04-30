@@ -1,24 +1,26 @@
-_______________________________________________Thread_em_Paralelo_______________________________________________
+Título: Primeiros passos na paralelização o OpenMP (Minicurso)
+
+______________________________________________Thread_em_Paralelo________________________________________________
 
 gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c -fopenmp //Compila o código usando OpenMP 
 
 ./exec //Executa o código 
 
+export OMP_NUM_THREADS=4 //Aumenta o número de threads
+
 gcc -o exec openmp/Inicializacao/Thread_em_Paralelo.c //Tenta compilar o código em serial para visualizar o erro 
 
 
-_______________________________________________Thread_em_Serial_______________________________________________
+______________________________________________Thread_em_Serial__________________________________________________
 
-gcc -o exec openmp/Inicializacao/Thread_em_Serial.c  //Compila o código em serial com o erro consertado 
-
-export OMP_NUM_THREADS=4 //Aumenta o número de threads 
+gcc -o exec openmp/Inicializacao/Thread_em_Serial.c  //Compila o código em serial com o erro consertado evidente
 
 gcc -o exec openmp/Inicializacao/Thread_em_Serial.c -fopenmp  //Compila o código em paralelo
 
 ./exec //Executa novamente com um número maior de threads 
 
 
-_______________________________________________Tempo_Serial_______________________________________________
+________________________________________________Tempo_Serial____________________________________________________
 
 gcc -o exec openmp/TempoExucucao/Tempo_Serial.c -lm 
 
@@ -27,7 +29,7 @@ gcc -o exec openmp/TempoExucucao/Tempo_Serial.c -lm
 time ./exec //Exibe o que que levou para execução 
 
 
-_______________________________________________Tempo_Paralelo_______________________________________________
+_______________________________________________Tempo_Paralelo___________________________________________________
 
 gcc -o exec openmp/TempoExucucao/Tempo_Paralelo.c -fopenmp -lm 
 
